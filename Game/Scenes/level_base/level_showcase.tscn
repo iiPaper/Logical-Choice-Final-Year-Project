@@ -1,0 +1,215 @@
+[gd_scene load_steps=22 format=4 uid="uid://bb5bj5747hfxb"]
+
+[ext_resource type="PackedScene" uid="uid://jlcm585ofi6j" path="res://Scenes/level_base/level_base.tscn" id="1_nx2ob"]
+[ext_resource type="PackedScene" uid="uid://c60v1lhq7xu3" path="res://Scenes/switch/switch.tscn" id="2_1pcgx"]
+[ext_resource type="PackedScene" uid="uid://cm1h0pfld7jja" path="res://Scenes/logic_base/and_gate.tscn" id="3_rgml2"]
+[ext_resource type="PackedScene" uid="uid://dkbq4kjcto74f" path="res://Scenes/logic_base/or_gate.tscn" id="4_vs8nj"]
+[ext_resource type="PackedScene" uid="uid://c7fpwwh183084" path="res://Scenes/logic_base/nand_gate.tscn" id="5_s660f"]
+[ext_resource type="PackedScene" uid="uid://64c412pw051o" path="res://Scenes/logic_base/nor_gate.tscn" id="6_0h00d"]
+[ext_resource type="PackedScene" uid="uid://cda6kxy4lm1by" path="res://Scenes/logic_base/xor_gate.tscn" id="7_boe77"]
+[ext_resource type="PackedScene" uid="uid://bt4q678b0tbj1" path="res://Scenes/logic_base/xnor_gate.tscn" id="8_qwtfm"]
+[ext_resource type="PackedScene" uid="uid://dle6lecsq174i" path="res://Scenes/logic_base/not_gate.tscn" id="9_2g60f"]
+[ext_resource type="PackedScene" uid="uid://sefxyo540u32" path="res://Scenes/button/button.tscn" id="10_xc2v7"]
+[ext_resource type="PackedScene" uid="uid://do8jny2jjfvgb" path="res://Scenes/terminal/terminal.tscn" id="11_ajsoc"]
+[ext_resource type="PackedScene" uid="uid://du3fkv2njh5wt" path="res://Scenes/checkpoint/checkpoint.tscn" id="12_4kibg"]
+[ext_resource type="PackedScene" uid="uid://juylw55yuamf" path="res://Scenes/cable/cable.tscn" id="13_a3jst"]
+[ext_resource type="PackedScene" uid="uid://c055e3xo61k3y" path="res://Scenes/door/door.tscn" id="14_hpbkv"]
+[ext_resource type="PackedScene" uid="uid://chekgo716pi1o" path="res://Scenes/door/interactable_door.tscn" id="15_8rfdl"]
+[ext_resource type="PackedScene" uid="uid://qsxe0amv1oye" path="res://Scenes/enemies/wheelbot.tscn" id="16_bt5yb"]
+[ext_resource type="PackedScene" uid="uid://cnhqbyhb23xcr" path="res://Scenes/enemies/jumpbot.tscn" id="17_f0ff6"]
+[ext_resource type="PackedScene" uid="uid://b4dyw740pq01s" path="res://Scenes/enemies/flybot.tscn" id="18_osgsu"]
+[ext_resource type="PackedScene" uid="uid://crm4co6dlpprm" path="res://Scenes/enemies/slidebot.tscn" id="19_cgtiu"]
+[ext_resource type="PackedScene" uid="uid://coixsf3cxf5y3" path="res://Scenes/coins/coin.tscn" id="20_eweq3"]
+[ext_resource type="Texture2D" uid="uid://djum0q0i548n8" path="res://Sprites/Other/Coin/coin_idle.png" id="21_0jeby"]
+
+[node name="Main" instance=ExtResource("1_nx2ob")]
+
+[node name="Label" parent="Overlays/UI" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="TileMapLayer" parent="." index="2"]
+tile_map_data = PackedByteArray("AAABAPj/AAAAAAAAAAABAPn/AAAAAAEAAAABAPr/AAAAAAEAAAABAPv/AAAKAAUAAAACAPv/AAABAAIAAAADAPv/AAABAAIAAAAEAPv/AAABAAIAAAAFAPv/AAABAAIAAAAGAPv/AAABAAoAAAAHAPv/AAABAAoAAAAHAPr/AAAEAAoAAAAGAPr/AAABAAkAAAAFAPr/AAABAAEAAAAEAPr/AAAIAAIAAAADAPr/AAALAAAAAAACAPr/AAAHAAIAAAACAPn/AAAHAAEAAAADAPn/AAALAAAAAAAEAPn/AAAIAAEAAAAFAPn/AAABAAEAAAAGAPn/AAABAAkAAAAHAPn/AAAEAAkAAAADAPj/AAABAAAAAAAEAPj/AAABAAAAAAAFAPj/AAABAAAAAAAGAPj/AAABAAgAAAAHAPj/AAABAAgAAAACAPj/AAABAAAAAAAIAPj/AAABAAgAAAAJAPj/AAABAAgAAAAKAPj/AAABAAgAAAALAPj/AAABABAAAAAMAPj/AAABABAAAAANAPj/AAABABAAAAAOAPj/AAABABAAAAAPAPj/AAABABAAAAAQAPj/AAABABgAAAARAPj/AAABABgAAAASAPj/AAABABgAAAATAPj/AAABABgAAAAUAPj/AAACABgAAAAUAPn/AAACABkAAAAUAPr/AAACABkAAAAUAPv/AAALAB0AAAATAPv/AAABABoAAAASAPv/AAABABoAAAARAPv/AAABABoAAAAQAPv/AAABABoAAAAPAPv/AAABABIAAAAOAPv/AAABABIAAAANAPv/AAABABIAAAAMAPv/AAABABIAAAALAPv/AAABABIAAAAKAPv/AAABAAoAAAAJAPv/AAABAAoAAAAIAPv/AAABAAoAAAAIAPn/AAALAAoAAAAIAPr/AAALAAoAAAAJAPr/AAAFAAoAAAAJAPn/AAAFAAkAAAAKAPn/AAABAAkAAAAKAPr/AAABAAkAAAALAPn/AAABABEAAAALAPr/AAABABEAAAAMAPr/AAAHABIAAAAMAPn/AAAHABEAAAANAPr/AAALABIAAAAOAPr/AAAIABIAAAAOAPn/AAAIABEAAAANAPn/AAALABIAAAAPAPr/AAABABEAAAAPAPn/AAABABEAAAATAPn/AAAMABgAAAATAPr/AAAMABoAAAASAPr/AAALABoAAAASAPn/AAALABgAAAARAPn/AAAKABgAAAARAPr/AAAKABoAAAAQAPn/AAABABkAAAAQAPr/AAABABkAAAAGAPT/AAAQABYAAAAHAPT/AAARABYAAAAIAPT/AAARABYAAAAJAPT/AAARABYAAAAKAPT/AAASABYAAAA=")
+
+[node name="Player" parent="." index="3"]
+position = Vector2(600, -600)
+
+[node name="CollisionShape2D" parent="Player" index="0"]
+visible = false
+
+[node name="PlayerCamera" parent="Player" index="3"]
+visible = false
+
+[node name="Hitbox" parent="Player" index="8"]
+visible = false
+
+[node name="Camera2D" parent="Player" index="14"]
+visible = false
+
+[node name="Switch" parent="Puzzles/Switches" index="0" instance=ExtResource("2_1pcgx")]
+position = Vector2(349.217, -528)
+output = true
+
+[node name="Sprite2D" parent="Puzzles/Switches/Switch" index="0"]
+hframes = 1
+
+[node name="CollisionShape2D" parent="Puzzles/Switches/Switch" index="4"]
+visible = false
+
+[node name="Label" parent="Puzzles/Switches/Switch" index="5"]
+visible = false
+
+[node name="AndGate" parent="." index="13" instance=ExtResource("3_rgml2")]
+position = Vector2(120, -416)
+
+[node name="OrGate" parent="." index="14" instance=ExtResource("4_vs8nj")]
+position = Vector2(120, -496)
+
+[node name="NandGate" parent="." index="15" instance=ExtResource("5_s660f")]
+position = Vector2(222, -416)
+
+[node name="NorGate" parent="." index="16" instance=ExtResource("6_0h00d")]
+position = Vector2(222, -496)
+
+[node name="XorGate" parent="." index="17" instance=ExtResource("7_boe77")]
+position = Vector2(120, -576)
+
+[node name="XnorGate" parent="." index="18" instance=ExtResource("8_qwtfm")]
+position = Vector2(218, -576)
+
+[node name="NotGate" parent="." index="19" instance=ExtResource("9_2g60f")]
+position = Vector2(168, -664)
+
+[node name="Button" parent="." index="20" instance=ExtResource("10_xc2v7")]
+position = Vector2(344, -600)
+
+[node name="CollisionShape2D" parent="Button" index="4"]
+visible = false
+
+[node name="Label" parent="Button" index="5"]
+visible = false
+
+[node name="Terminal" parent="." index="21" instance=ExtResource("11_ajsoc")]
+position = Vector2(456, -656)
+
+[node name="Checkpoint" parent="." index="22" instance=ExtResource("12_4kibg")]
+position = Vector2(456, -480)
+
+[node name="CollisionShape2D" parent="Checkpoint" index="2"]
+visible = false
+
+[node name="Cable" parent="." index="23" instance=ExtResource("13_a3jst")]
+position = Vector2(685.217, -524)
+points = PackedVector2Array(-337.217, 133.678, -337.217, 149.678, -353.217, 149.678, -353.217, 173.678, -321.217, 173.678, -321.217, 149.678, -337.217, 149.678)
+default_color = Color(0.380392, 0.647059, 0.247059, 1)
+
+[node name="Door2" parent="." index="24" instance=ExtResource("14_hpbkv")]
+position = Vector2(584, -384)
+
+[node name="Sprite2D" parent="Door2" index="0"]
+position = Vector2(61, -16)
+
+[node name="CollisionShape2D" parent="Door2" index="1"]
+visible = false
+
+[node name="AudioStreamPlayer2D" parent="Door2" index="2"]
+position = Vector2(61, 0)
+
+[node name="InteractableDoor" parent="." index="25" instance=ExtResource("15_8rfdl")]
+position = Vector2(944, -480)
+
+[node name="CollisionShape2D" parent="InteractableDoor" index="2"]
+visible = false
+
+[node name="Area2D" parent="InteractableDoor" index="4"]
+visible = false
+
+[node name="Wheelbot" parent="." index="26" instance=ExtResource("16_bt5yb")]
+position = Vector2(600, -384)
+
+[node name="Hitbox" parent="Wheelbot" index="2"]
+visible = false
+
+[node name="FloorCollisionShape" parent="Wheelbot" index="3"]
+visible = false
+
+[node name="DetectionArea" parent="Wheelbot" index="4"]
+visible = false
+
+[node name="FloorDetectionRay" parent="Wheelbot" index="5"]
+visible = false
+
+[node name="FarFloorDetectionRay" parent="Wheelbot" index="6"]
+visible = false
+
+[node name="Jumpbot" parent="." index="27" instance=ExtResource("17_f0ff6")]
+position = Vector2(696, -384)
+
+[node name="Sprite2D" parent="Jumpbot" index="0"]
+position = Vector2(3.2, -24)
+
+[node name="Hitbox" parent="Jumpbot" index="2"]
+visible = false
+
+[node name="FloorCollisionShape" parent="Jumpbot" index="3"]
+visible = false
+
+[node name="DetectionArea" parent="Jumpbot" index="4"]
+visible = false
+
+[node name="DetectionArea2" parent="Jumpbot" index="5"]
+visible = false
+
+[node name="Flybot" parent="." index="28" instance=ExtResource("18_osgsu")]
+position = Vector2(600, -504)
+
+[node name="Hitbox" parent="Flybot" index="2"]
+visible = false
+
+[node name="FloorCollisionShape" parent="Flybot" index="3"]
+visible = false
+
+[node name="DetectionArea" parent="Flybot" index="4"]
+visible = false
+
+[node name="PlayerDetectionRay" parent="Flybot" index="5"]
+visible = false
+
+[node name="Shooter" parent="Flybot" index="7"]
+visible = false
+
+[node name="Slidebot" parent="." index="29" instance=ExtResource("19_cgtiu")]
+position = Vector2(704, -536)
+
+[node name="Hitbox" parent="Slidebot" index="1"]
+visible = false
+
+[node name="Coin" parent="." index="30" instance=ExtResource("20_eweq3")]
+position = Vector2(523.942, -437.321)
+
+[node name="Sprite2D" parent="Coin" index="0"]
+position = Vector2(2.02914, 6.66066)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Coin" index="1"]
+position = Vector2(2.02914, -17.3393)
+texture = ExtResource("21_0jeby")
+hframes = 13
+
+[node name="Sprite2D3" type="Sprite2D" parent="Coin" index="2"]
+position = Vector2(2.02914, -41.3393)
+texture = ExtResource("21_0jeby")
+hframes = 13
+
+[node name="CollisionShape2D" parent="Coin" index="4"]
+visible = false
+
+[editable path="Player"]
+[editable path="Puzzles/Switches/Switch"]
+[editable path="Button"]
+[editable path="Checkpoint"]
+[editable path="Door2"]
+[editable path="InteractableDoor"]
+[editable path="Wheelbot"]
+[editable path="Jumpbot"]
+[editable path="Flybot"]
+[editable path="Slidebot"]
+[editable path="Coin"]

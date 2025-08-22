@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c055e3xo61k3y"]
+
+[ext_resource type="Texture2D" uid="uid://d3jym1pgcqkwd" path="res://Sprites/Other/Doors/Door_1.png" id="1_1s0y8"]
+[ext_resource type="Script" path="res://Scenes/door/door.gd" id="1_nnoqd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_teqvu"]
+size = Vector2(16, 30)
+
+[node name="Door" type="Area2D"]
+scale = Vector2(4, 4)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_nnoqd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("1_1s0y8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_teqvu")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

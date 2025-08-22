@@ -1,0 +1,173 @@
+[gd_scene load_steps=11 format=3 uid="uid://ciw8d6e2hbo7b"]
+
+[ext_resource type="Texture2D" uid="uid://wfgq5c4u1jvw" path="res://Sprites/Backgrounds/Nature_BG.png" id="1_0p6g3"]
+[ext_resource type="Script" path="res://Scripts/main/main.gd" id="1_cxy6j"]
+[ext_resource type="LabelSettings" uid="uid://ckv1an5xuqaw0" path="res://Text/label_scores.tres" id="3_hyx7m"]
+
+[sub_resource type="SystemFont" id="SystemFont_iberx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_puecp"]
+font = SubResource("SystemFont_iberx")
+font_size = 120
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 12
+shadow_color = Color(0.258824, 0.258824, 0.258824, 0.584314)
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wyvjv"]
+font = SubResource("SystemFont_iberx")
+font_size = 30
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0.258824, 0.258824, 0.258824, 0.584314)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b8wvy"]
+font = SubResource("SystemFont_iberx")
+font_size = 30
+font_color = Color(0.839216, 0.596078, 0.0901961, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0.258824, 0.258824, 0.258824, 0.584314)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="Animation" id="Animation_niw16"]
+resource_name = "Base"
+length = 2.0
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.838897, 0.838897, 0.838897, 1), Color(0.839216, 0.839216, 0.839216, 0.176471), Color(0.839216, 0.839216, 0.839216, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qhd27"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.838897, 0.838897, 0.838897, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m5y4o"]
+_data = {
+"Base": SubResource("Animation_niw16"),
+"RESET": SubResource("Animation_qhd27")
+}
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cxy6j")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0p6g3")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -410.5
+offset_top = -150.5
+offset_right = 409.5
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Logical Choice"
+label_settings = SubResource("LabelSettings_puecp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -410.5
+offset_top = -46.5
+offset_right = 409.5
+offset_bottom = 118.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Made by Samuel Jaden García Muñoz
+"
+label_settings = SubResource("LabelSettings_wyvjv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mini" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = 84.0
+offset_right = 676.0
+offset_bottom = 249.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.240578
+text = "(All of it!)"
+label_settings = SubResource("LabelSettings_b8wvy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Theme" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Message" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.5
+offset_top = 113.5
+offset_right = 160.5
+offset_bottom = 158.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press 'Space' to Start"
+label_settings = ExtResource("3_hyx7m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Message")
+libraries = {
+"": SubResource("AnimationLibrary_m5y4o")
+}
+autoplay = "Base"

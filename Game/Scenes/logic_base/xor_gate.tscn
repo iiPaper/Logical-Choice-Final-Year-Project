@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://cda6kxy4lm1by"]
+
+[ext_resource type="PackedScene" uid="uid://bwjx8hvxvnwij" path="res://Scenes/logic_base/logic_base.tscn" id="1_rh1lh"]
+[ext_resource type="Script" path="res://Scripts/logic_base/xor_gate.gd" id="2_0m3y5"]
+[ext_resource type="Texture2D" uid="uid://brbgu4gr2u6o" path="res://Sprites/Other/Gates/XOR/xor_off.png" id="2_7g6w2"]
+[ext_resource type="Texture2D" uid="uid://cmexp7077afva" path="res://Sprites/Other/Gates/XOR/xor_on.png" id="3_3ni7n"]
+
+[sub_resource type="Animation" id="Animation_ex146"]
+resource_name = "Off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_7g6w2")]
+}
+
+[sub_resource type="Animation" id="Animation_wibmx"]
+resource_name = "On"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_3ni7n")]
+}
+
+[sub_resource type="Animation" id="Animation_bl1lp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_7g6w2")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7sdqw"]
+_data = {
+"Off": SubResource("Animation_ex146"),
+"On": SubResource("Animation_wibmx"),
+"RESET": SubResource("Animation_bl1lp")
+}
+
+[node name="XorGate" instance=ExtResource("1_rh1lh")]
+script = ExtResource("2_0m3y5")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_7g6w2")
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_7sdqw")
+}
+
+[node name="Label" parent="." index="2"]
+text = "XOR"

@@ -1,0 +1,506 @@
+[gd_scene load_steps=14 format=4 uid="uid://blqq7du2bn1k6"]
+
+[ext_resource type="PackedScene" uid="uid://jlcm585ofi6j" path="res://Scenes/level_base/level_base.tscn" id="1_8juy3"]
+[ext_resource type="Texture2D" uid="uid://dt8k7sexne1re" path="res://Sprites/Backgrounds/Futuristic_BG.png" id="2_e6x5y"]
+[ext_resource type="PackedScene" uid="uid://coixsf3cxf5y3" path="res://Scenes/coins/coin.tscn" id="3_jia2o"]
+[ext_resource type="PackedScene" uid="uid://chekgo716pi1o" path="res://Scenes/door/interactable_door.tscn" id="3_lrymu"]
+[ext_resource type="PackedScene" uid="uid://juylw55yuamf" path="res://Scenes/cable/cable.tscn" id="4_tprmj"]
+[ext_resource type="PackedScene" uid="uid://c60v1lhq7xu3" path="res://Scenes/switch/switch.tscn" id="5_u7gi2"]
+[ext_resource type="PackedScene" uid="uid://cm1h0pfld7jja" path="res://Scenes/logic_base/and_gate.tscn" id="6_kmapy"]
+[ext_resource type="PackedScene" uid="uid://dkbq4kjcto74f" path="res://Scenes/logic_base/or_gate.tscn" id="7_i3avl"]
+[ext_resource type="PackedScene" uid="uid://dle6lecsq174i" path="res://Scenes/logic_base/not_gate.tscn" id="8_t3oxq"]
+[ext_resource type="PackedScene" uid="uid://cda6kxy4lm1by" path="res://Scenes/logic_base/xor_gate.tscn" id="9_vuman"]
+[ext_resource type="PackedScene" uid="uid://c7fpwwh183084" path="res://Scenes/logic_base/nand_gate.tscn" id="10_gfiyh"]
+[ext_resource type="PackedScene" uid="uid://64c412pw051o" path="res://Scenes/logic_base/nor_gate.tscn" id="11_lww7w"]
+[ext_resource type="PackedScene" uid="uid://bt4q678b0tbj1" path="res://Scenes/logic_base/xnor_gate.tscn" id="13_a2dmr"]
+
+[node name="Main" instance=ExtResource("1_8juy3")]
+
+[node name="ColorRect" parent="Overlays/Background" index="0"]
+color = Color(0.372549, 0.341176, 0.572549, 0.419608)
+
+[node name="Sprite2D" parent="Overlays/Background" index="1"]
+texture = ExtResource("2_e6x5y")
+
+[node name="TileMapLayer" parent="." index="2"]
+tile_map_data = PackedByteArray("AAAGAO7/AAAAABAAAAAHAO7/AAABABAAAAAIAO3/AAAKABQAAAAIAO7/AAAFABUAAAAIAO//AAABABIAAAAJAO3/AAABABAAAAAJAO7/AAABABEAAAAJAO//AAABABIAAAAKAO3/AAABABAAAAAKAO7/AAABABEAAAAKAO//AAABABIAAAALAO3/AAABABAAAAALAO7/AAABABEAAAALAO//AAABABIAAAAMAO3/AAABABAAAAAMAO7/AAABABEAAAAMAO//AAABABIAAAANAO3/AAALABQAAAANAO7/AAAEABUAAAANAO//AAABABIAAAAOAO7/AAABABAAAAAPAO7/AAABABAAAAAQAO7/AAACABAAAAAJAOr/AAAMABYAAAAJAOf/AAAMABYAAAAJAOT/AAAMABYAAAAJAOH/AAAMABYAAAAMAOr/AAAOABYAAAAMAOf/AAAOABYAAAAMAOT/AAAOABYAAAAMAOH/AAAOABYAAAAGAOn/AAAKABUAAAAHAOn/AAAFABQAAAAHAOr/AAAKABUAAAAIAOn/AAACABEAAAAIAOr/AAACABIAAAANAOn/AAAAABEAAAANAOr/AAAAABIAAAAOAOn/AAAEABQAAAAOAOr/AAALABUAAAAPAOn/AAALABUAAAAGAOj/AAAAABEAAAAHAOj/AAABABEAAAAIAOj/AAACABEAAAAGAOf/AAAAABEAAAAHAOf/AAABABEAAAAIAOf/AAACABEAAAAGAOb/AAAAABEAAAAHAOb/AAABABEAAAAIAOb/AAACABEAAAAGAOX/AAAAABEAAAAHAOX/AAABABEAAAAIAOX/AAACABEAAAAGAOT/AAAAABEAAAAHAOT/AAABABEAAAAIAOT/AAACABEAAAAGAOP/AAAAABEAAAAHAOP/AAABABEAAAAIAOP/AAACABEAAAAGAOL/AAAAABEAAAAHAOL/AAABABEAAAAIAOL/AAACABEAAAANAOj/AAAAABEAAAAOAOj/AAABABEAAAAPAOj/AAACABEAAAANAOf/AAAAABEAAAAOAOf/AAABABEAAAAPAOf/AAACABEAAAANAOb/AAAAABEAAAAOAOb/AAABABEAAAAPAOb/AAACABEAAAANAOX/AAAAABEAAAAOAOX/AAABABEAAAAPAOX/AAACABEAAAANAOT/AAAAABEAAAAOAOT/AAABABEAAAAPAOT/AAACABEAAAANAOP/AAAAABEAAAAOAOP/AAABABEAAAAPAOP/AAACABEAAAANAOL/AAAAABEAAAAOAOL/AAABABEAAAAPAOL/AAACABEAAAANAOH/AAAAABEAAAAOAOH/AAABABEAAAAPAOH/AAACABEAAAAGAOH/AAAAABEAAAAHAOH/AAABABEAAAAIAOH/AAACABEAAAAGAOD/AAAAABEAAAAHAOD/AAABABEAAAAIAOD/AAACABEAAAAGAN//AAABABEAAAAHAN//AAABABEAAAAIAN//AAACABEAAAAGAN7/AAABABAAAAAHAN7/AAABABAAAAANAOD/AAAAABEAAAAOAOD/AAABABEAAAAPAOD/AAACABEAAAANAN//AAAAABEAAAAOAN//AAABABEAAAAPAN//AAABABEAAAANAN7/AAAAABAAAAAOAN7/AAABABAAAAAPAN7/AAABABAAAAAJAN7/AAAMABYAAAAKAN7/AAAQABYAAAALAN7/AAASABYAAAAMAN7/AAAOABYAAAAIAN7/AAACABAAAAAQAN7/AAABABAAAAARAN7/AAABABAAAAAQAN//AAABABEAAAARAN//AAABABEAAAAQAOD/AAABABIAAAARAOD/AAABABIAAAASAOD/AAABABIAAAATAOD/AAABABIAAAAUAOD/AAABABIAAAAUAN//AAABABEAAAAUAN7/AAABABAAAAAUAN3/AAACABEAAAAUANz/AAACABEAAAAUANv/AAACABEAAAAUANr/AAACABEAAAAUANn/AAALABQAAAASAN//AAABABEAAAATAN//AAABABEAAAATAN7/AAABABEAAAASAN7/AAAFABIAAAAFAOD/AAABABIAAAAEAOD/AAABABIAAAADAOD/AAABABIAAAACAOD/AAABABIAAAABAOD/AAABABIAAAAFAN7/AAABABAAAAAEAN7/AAABABAAAAADAN7/AAAEABIAAAADAN3/AAACABEAAAADANz/AAACABEAAAADANv/AAACABEAAAASAN3/AAAAABEAAAASANz/AAAAABEAAAASANv/AAAAABEAAAAEANr/AAALABUAAAAFANn/AAALABUAAAAGANj/AAABABIAAAAHANj/AAABABIAAAAIANj/AAABABIAAAAJANj/AAABABIAAAAKANj/AAABABIAAAALANj/AAABABIAAAAMANj/AAABABIAAAANANj/AAABABIAAAAOANj/AAABABIAAAAPANj/AAABABIAAAARANr/AAAKABUAAAAQANn/AAAKABUAAAASANr/AAAFABQAAAARANn/AAAFABQAAAAQANj/AAAFABQAAAAFANj/AAAEABQAAAAEANn/AAAEABQAAAADANr/AAAEABQAAAABAN//AAABABEAAAABAN7/AAABABAAAAABAN3/AAAAABEAAAABANz/AAAAABEAAAABANv/AAAAABEAAAABANr/AAAAABEAAAABANn/AAAKABQAAAACANj/AAAKABQAAAADANf/AAAKABQAAAAEANb/AAAKABQAAAATANj/AAALABQAAAASANf/AAALABQAAAARANb/AAALABQAAAAFANb/AAABABAAAAAGANb/AAABABAAAAAHANb/AAABABAAAAAIANb/AAABABAAAAAJANb/AAABABAAAAAKANb/AAABABEAAAALANb/AAABABEAAAAMANb/AAABABAAAAANANb/AAABABAAAAAOANb/AAABABAAAAAPANb/AAABABAAAAAQANb/AAABABAAAAACANn/AAAFABUAAAADANj/AAAFABUAAAAEANf/AAAFABUAAAATANn/AAAEABUAAAASANj/AAAEABUAAAARANf/AAAEABUAAAATAN3/AAABABEAAAATANz/AAABABEAAAATANv/AAABABEAAAATANr/AAABABEAAAASANn/AAABABEAAAARANj/AAABABEAAAAQANf/AAABABEAAAAPANf/AAABABEAAAAOANf/AAABABEAAAANANf/AAABABEAAAAMANf/AAABABEAAAALANf/AAABABEAAAAKANf/AAABABEAAAAJANf/AAABABEAAAAIANf/AAABABEAAAAHANf/AAABABEAAAAGANf/AAABABEAAAAFANf/AAABABEAAAAEANj/AAABABEAAAADANn/AAABABEAAAACANr/AAABABEAAAACANv/AAABABEAAAACANz/AAABABEAAAACAN3/AAABABEAAAACAN7/AAABABEAAAACAN//AAABABEAAAADAN//AAABABEAAAAEAN//AAABABEAAAAFAN//AAABABEAAAAHAO//AAABABIAAAAGAO//AAAAABIAAAABAM//AAABABAAAAACAM//AAABABAAAAADAM//AAABABAAAAAEAM//AAABABAAAAAFAM//AAABABAAAAAGAM//AAABABAAAAAHAM//AAABABAAAAAIAM//AAABABAAAAAJAM//AAABABAAAAAKAM//AAABABAAAAALAM//AAABABAAAAAMAM//AAABABAAAAANAM//AAABABAAAAAOAM//AAABABAAAAAPAM//AAABABAAAAAQAM//AAABABAAAAARAM//AAABABAAAAASAM//AAABABAAAAATAM//AAABABAAAAAUAM//AAABABAAAAAOAO//AAABABIAAAAPAO//AAABABIAAAAQAO//AAACABIAAAAUANH/AAABABIAAAATANH/AAABABIAAAASANH/AAABABIAAAARANH/AAABABIAAAAQANH/AAABABIAAAAPANH/AAABABIAAAAOANH/AAABABIAAAANANH/AAABABIAAAAMANH/AAABABIAAAALANH/AAABABEAAAAKANH/AAABABEAAAAJANH/AAABABIAAAAIANH/AAABABIAAAAHANH/AAABABIAAAAGANH/AAABABIAAAAFANH/AAABABIAAAAEANH/AAABABIAAAADANH/AAABABIAAAACANH/AAABABIAAAABANH/AAABABIAAAAUAND/AAABABEAAAATAND/AAABABEAAAASAND/AAABABEAAAARAND/AAABABEAAAAQAND/AAABABEAAAAPAND/AAABABEAAAAOAND/AAABABEAAAANAND/AAABABEAAAAMAND/AAABABEAAAALAND/AAABABEAAAAKAND/AAABABEAAAAJAND/AAABABEAAAAIAND/AAABABEAAAAHAND/AAABABEAAAAGAND/AAABABEAAAAFAND/AAABABEAAAAEAND/AAABABEAAAADAND/AAABABEAAAACAND/AAABABEAAAABAND/AAABABEAAADz/8//AAABABAAAADz/9D/AAABABEAAADz/9H/AAABABIAAAD0/8//AAABABAAAAD0/9D/AAABABEAAAD0/9H/AAABABIAAAD1/8//AAABABAAAAD1/9D/AAABABEAAAD1/9H/AAABABIAAAD2/8//AAABABAAAAD2/9D/AAABABEAAAD2/9H/AAABABIAAAD3/8//AAABABAAAAD3/9D/AAABABEAAAD3/9H/AAABABIAAAD4/8//AAABABAAAAD4/9D/AAABABEAAAD4/9H/AAABABIAAAD5/8//AAABABAAAAD5/9D/AAABABEAAAD5/9H/AAABABIAAAD6/8//AAABABAAAAD6/9D/AAABABEAAAD6/9H/AAABABIAAAD7/8//AAABABAAAAD7/9D/AAABABEAAAD7/9H/AAABABIAAAD8/8//AAABABAAAAD8/9D/AAABABEAAAD8/9H/AAABABIAAAD9/8//AAABABAAAAD9/9D/AAABABEAAAD9/9H/AAABABIAAAD+/8//AAABABAAAAD+/9D/AAABABEAAAD+/9H/AAABABIAAAD//8//AAABABAAAAD//9D/AAABABEAAAD//9H/AAABABIAAAAAAM//AAABABAAAAAAAND/AAABABEAAAAAANH/AAABABIAAADo/8//AAAAABAAAADo/9D/AAAAABEAAADo/9H/AAAAABEAAADo/9L/AAAAABEAAADo/9P/AAAAABEAAADo/9T/AAAAABEAAADo/9X/AAAAABEAAADo/9b/AAAAABEAAADo/9f/AAAAABEAAADo/9j/AAAAABEAAADo/9n/AAAAABEAAADp/8//AAABABAAAADp/9D/AAABABEAAADp/9H/AAABABEAAADp/9L/AAABABEAAADp/9P/AAABABEAAADp/9T/AAABABEAAADp/9X/AAABABEAAADp/9b/AAABABEAAADp/9f/AAABABEAAADp/9j/AAABABEAAADp/9n/AAAEABQAAADp/9r/AAALABUAAADq/8//AAABABAAAADq/9D/AAABABEAAADq/9H/AAAEABEAAADq/9L/AAACABEAAADq/9P/AAACABEAAADq/9T/AAACABEAAADq/9X/AAACABEAAADq/9b/AAACABEAAADq/9f/AAACABEAAADq/9j/AAACABEAAADq/9n/AAALABUAAADr/8//AAABABAAAADr/9D/AAABABEAAADr/9H/AAABABIAAADs/8//AAABABAAAADs/9D/AAABABEAAADs/9H/AAABABIAAADt/8//AAABABAAAADt/9D/AAABABEAAADt/9H/AAABABIAAADu/8//AAABABAAAADu/9D/AAABABEAAADu/9H/AAABABIAAADv/8//AAABABAAAADv/9D/AAABABEAAADv/9H/AAABABIAAADw/8//AAABABAAAADw/9D/AAABABEAAADw/9H/AAABABIAAADx/8//AAABABAAAADx/9D/AAABABEAAADx/9H/AAABABIAAADy/8//AAABABAAAADy/9D/AAABABEAAADy/9H/AAABABIAAAAVAM//AAABABAAAAAVAND/AAABABEAAAAVANH/AAABABIAAAAWAM//AAABABAAAAAWAND/AAABABEAAAAWANH/AAABABIAAAAXAM//AAABABAAAAAXAND/AAABABEAAAAXANH/AAABABIAAAAYAM//AAABABAAAAAYAND/AAABABEAAAAYANH/AAABABIAAAAZAM//AAABABAAAAAZAND/AAABABEAAAAZANH/AAABABIAAAAaAM//AAABABAAAAAaAND/AAABABEAAAAaANH/AAABABIAAAAbAM//AAABABAAAAAbAND/AAABABEAAAAbANH/AAABABIAAAAcAM//AAABABAAAAAcAND/AAABABEAAAAcANH/AAABABIAAAAdAM//AAABABAAAAAdAND/AAABABEAAAAdANH/AAABABIAAAAeAM//AAABABAAAAAeAND/AAABABEAAAAeANH/AAABABIAAAAfAM//AAABABAAAAAfAND/AAABABEAAAAfANH/AAABABIAAAAgAM//AAABABAAAAAgAND/AAABABEAAAAgANH/AAABABIAAAAhAM//AAABABAAAAAhAND/AAABABEAAAAhANH/AAABABIAAAAiAM//AAABABAAAAAiAND/AAABABEAAAAiANH/AAABABIAAAAjAM//AAABABAAAAAjAND/AAABABEAAAAjANH/AAABABIAAAAkAM//AAABABAAAAAkAND/AAABABEAAAAkANH/AAABABIAAAAkAO3/AAABABAAAAAkAO7/AAABABEAAAAkAO//AAABABIAAAAlAM//AAABABAAAAAlAND/AAABABEAAAAlANH/AAABABIAAAAlAO3/AAABABAAAAAlAO7/AAABABEAAAAlAO//AAABABIAAAAmAM//AAABABAAAAAmAND/AAABABEAAAAmANH/AAABABIAAAAmAO3/AAABABAAAAAmAO7/AAABABEAAAAmAO//AAABABIAAAAnAM//AAABABAAAAAnAND/AAABABEAAAAnANH/AAABABIAAAAnAO3/AAABABAAAAAnAO7/AAABABEAAAAnAO//AAABABIAAAAoAM//AAABABAAAAAoAND/AAABABEAAAAoANH/AAABABIAAAAoAO3/AAABABAAAAAoAO7/AAABABEAAAAoAO//AAABABIAAAApAM//AAABABAAAAApAND/AAABABEAAAApANH/AAABABIAAAApAO3/AAABABAAAAApAO7/AAABABEAAAApAO//AAABABIAAAAqAM//AAABABAAAAAqAND/AAABABEAAAAqANH/AAABABIAAAAqAO3/AAABABAAAAAqAO7/AAABABEAAAAqAO//AAABABIAAAArAM//AAABABAAAAArAND/AAABABEAAAArANH/AAAFABEAAAArANL/AAAAABEAAAArANP/AAAKABUAAAArANf/AAAKABQAAAArANj/AAAAABEAAAArANn/AAAAABEAAAArANr/AAAAABEAAAArANv/AAAAABEAAAArANz/AAAAABEAAAArAN3/AAAAABEAAAArAN7/AAAAABEAAAArAN//AAAAABEAAAArAOD/AAAAABEAAAArAOH/AAAAABEAAAArAOL/AAAAABEAAAArAOP/AAAAABEAAAArAOT/AAAAABEAAAArAOX/AAAAABEAAAArAOb/AAAAABEAAAArAOf/AAAAABEAAAArAOj/AAAAABEAAAArAOn/AAAAABEAAAArAOr/AAAAABEAAAArAOv/AAAAABEAAAArAOz/AAAAABEAAAArAO3/AAAFABIAAAArAO7/AAABABEAAAArAO//AAABABIAAAAsAM//AAABABAAAAAsAND/AAABABEAAAAsANH/AAABABEAAAAsANL/AAABABEAAAAsANP/AAAFABQAAAAsANf/AAALABQAAAAsANj/AAAEABUAAAAsANn/AAABABEAAAAsANr/AAABABEAAAAsANv/AAABABEAAAAsANz/AAABABEAAAAsAN3/AAABABEAAAAsAN7/AAABABEAAAAsAN//AAABABEAAAAsAOD/AAABABEAAAAsAOH/AAABABEAAAAsAOL/AAABABEAAAAsAOP/AAABABEAAAAsAOT/AAABABEAAAAsAOX/AAABABEAAAAsAOb/AAABABEAAAAsAOf/AAABABEAAAAsAOj/AAABABEAAAAsAOn/AAABABEAAAAsAOr/AAABABEAAAAsAOv/AAABABEAAAAsAOz/AAABABEAAAAsAO3/AAABABEAAAAsAO7/AAABABEAAAAsAO//AAABABIAAAAtAM//AAACABAAAAAtAND/AAACABEAAAAtANH/AAACABEAAAAtANL/AAACABEAAAAtANP/AAACABEAAAAtANj/AAALABQAAAAtANn/AAACABEAAAAtANr/AAACABEAAAAtANv/AAACABEAAAAtANz/AAACABEAAAAtAN3/AAACABEAAAAtAN7/AAACABEAAAAtAN//AAACABEAAAAtAOD/AAACABEAAAAtAOH/AAACABEAAAAtAOL/AAACABEAAAAtAOP/AAACABEAAAAtAOT/AAACABEAAAAtAOX/AAACABEAAAAtAOb/AAACABEAAAAtAOf/AAACABEAAAAtAOj/AAACABEAAAAtAOn/AAACABEAAAAtAOr/AAACABEAAAAtAOv/AAACABEAAAAtAOz/AAACABEAAAAtAO3/AAACABEAAAAtAO7/AAACABEAAAAtAO//AAACABIAAAAJANX/AAAAABEAAAAJANT/AAAAABEAAAAJANP/AAAAABEAAAAJANL/AAAAABEAAAAMANX/AAACABEAAAAMANT/AAACABEAAAAMANP/AAACABEAAAAMANL/AAACABEAAAALANX/AAABABEAAAALANT/AAABABEAAAALANP/AAABABEAAAALANL/AAABABEAAAAKANL/AAABABEAAAAKANP/AAABABEAAAAKANT/AAABABEAAAAKANX/AAABABEAAADw/+D/AAAAABIAAADx/9//AAABABAAAADx/+D/AAABABIAAADy/9//AAABABAAAADy/+D/AAABABIAAADz/9//AAABABAAAADz/+D/AAABABIAAAD0/97/AAAKABQAAAD0/9//AAAFABUAAAD0/+D/AAABABIAAAD1/97/AAABABAAAAD1/9//AAABABEAAAD1/+D/AAABABIAAAD2/97/AAABABAAAAD2/9//AAABABEAAAD2/+D/AAABABIAAAD3/97/AAABABAAAAD3/9//AAABABEAAAD3/+D/AAABABIAAAD4/97/AAABABAAAAD4/9//AAABABEAAAD4/+D/AAABABIAAAD5/97/AAABABAAAAD5/9//AAABABEAAAD5/+D/AAABABIAAAD6/97/AAABABAAAAD6/9//AAABABEAAAD6/+D/AAABABIAAAD7/97/AAABABAAAAD7/9//AAABABEAAAD7/+D/AAABABIAAAD8/97/AAABABAAAAD8/9//AAABABEAAAD8/+D/AAABABIAAAD9/97/AAABABAAAAD9/9//AAABABEAAAD9/+D/AAABABIAAAD+/97/AAABABAAAAD+/9//AAABABEAAAD+/+D/AAABABIAAAD//97/AAABABAAAAD//9//AAABABEAAAD//+D/AAABABIAAAAAAN7/AAABABAAAAAAAN//AAABABEAAAAAAOD/AAABABIAAAAVAN7/AAABABAAAAAVAN//AAABABEAAAAVAOD/AAABABIAAAAWAN7/AAABABAAAAAWAN//AAABABEAAAAWAOD/AAABABIAAAAXAN7/AAABABAAAAAXAN//AAABABEAAAAXAOD/AAABABIAAAAYAN7/AAABABAAAAAYAN//AAABABEAAAAYAOD/AAABABIAAAAZAN7/AAABABAAAAAZAN//AAABABEAAAAZAOD/AAABABIAAAAaAN7/AAABABAAAAAaAN//AAABABEAAAAaAOD/AAABABIAAAAbAN7/AAABABAAAAAbAN//AAABABEAAAAbAOD/AAABABIAAAAcAN7/AAABABAAAAAcAN//AAABABEAAAAcAOD/AAABABIAAAAdAN7/AAABABAAAAAdAN//AAABABEAAAAdAOD/AAABABIAAAAeAN7/AAABABAAAAAeAN//AAABABEAAAAeAOD/AAABABIAAAAfAN7/AAABABAAAAAfAN//AAABABEAAAAfAOD/AAABABIAAAAgAN7/AAABABAAAAAgAN//AAABABEAAAAgAOD/AAABABIAAAAhAN7/AAABABAAAAAhAN//AAABABEAAAAhAOD/AAABABIAAAAiAN7/AAABABAAAAAiAN//AAABABEAAAAiAOD/AAABABIAAAAjAN7/AAABABAAAAAjAN//AAABABEAAAAjAOD/AAABABIAAAAkAN7/AAABABAAAAAkAN//AAABABEAAAAkAOD/AAABABIAAAAlAN7/AAACABAAAAAlAN//AAACABEAAAAlAOD/AAACABIAAAD3/9z/AAAQABYAAAD6/9r/AAAQABYAAAD9/9j/AAAQABYAAAAAANb/AAAQABYAAAD4/9z/AAARABYAAAD5/9z/AAASABYAAAD7/9r/AAARABYAAAD8/9r/AAASABYAAAD+/9j/AAARABYAAAD//9j/AAASABYAAAABANb/AAARABYAAAACANb/AAASABYAAAAVANb/AAASABYAAAAYANj/AAASABYAAAAbANr/AAASABYAAAAeANz/AAASABYAAAATANb/AAAQABYAAAAUANb/AAARABYAAAAWANj/AAAQABYAAAAXANj/AAARABYAAAAZANr/AAAQABYAAAAaANr/AAARABYAAAAcANz/AAAQABYAAAAdANz/AAARABYAAAD6/+z/AAALABQAABD6/+3/AAACABIAABD7/+r/AAALABQAABD7/+v/AAACABIAABD7/+z/AAAAABAAABD7/+3/AAAKABUAABD8/+r/AAAAABAAABD8/+v/AAAKABUAABD+/+v/AAAAABAAAAD+/+z/AAAKABUAAAD+/+3/AAALABQAABD+/+7/AAACABIAABD//+v/AAALABQAAAD//+z/AAACABIAAAD//+3/AAAAABAAABD//+7/AAAKABUAABAAAOv/AAALABQAABAAAOz/AAACABIAABAAAO3/AAAAABAAAAAAAO7/AAAKABUAAAABAOv/AAAAABAAABABAOz/AAAKABUAABABAO3/AAALABQAAAABAO7/AAACABIAAADw/9//AAAKABQAAAAFAO//AAAAABAAABAEAO//AAALABQAABAFAPD/AAAKABUAABAEAPD/AAACABIAABAFAO3/AAALABQAAAAEAO3/AAAAABAAAAAFAO7/AAACABIAAAAEAO7/AAAKABUAAAD1/+n/AAAAABAAABD1/+r/AAAKABUAABDy/+r/AAAAABAAAADy/+v/AAAKABUAAADz/+r/AAALABQAAADz/+v/AAACABIAAAD0/+n/AAALABQAABD0/+r/AAACABIAABD0/+v/AAAAABAAAAD0/+z/AAAKABUAAAD1/+v/AAALABQAAAD1/+z/AAACABIAAADu/+f/AAALABQAABDu/+j/AAACABIAABDv/+f/AAAAABAAABDv/+j/AAAKABUAABDo/+r/AAALABQAABDo/+v/AAACABIAABDp/+r/AAAAABAAABDp/+v/AAAKABUAABDm/+r/AAAAABAAAADm/+v/AAAKABUAAADn/+r/AAALABQAAADn/+v/AAACABIAAADo/+z/AAAAABAAAADo/+3/AAAKABUAAADp/+z/AAALABQAAADp/+3/AAACABIAAADp/+T/AAALABQAABDp/+X/AAACABIAABDq/+T/AAAAABAAABDq/+X/AAAKABUAABDr/+P/AAALABQAABDr/+T/AAACABIAABDs/+P/AAAAABAAABDs/+T/AAAKABUAABDg/+f/AAAAABAAAADg/+j/AAAKABUAAADh/+f/AAALABQAAADh/+j/AAACABIAAADv/+D/AAAAABAAABDu/+D/AAALABQAABDv/+H/AAAKABUAABDu/+H/AAACABIAABDo/9r/AAAAABIAAAAjAO3/AAAAABAAAAAjAO7/AAAAABEAAAAjAO//AAAAABIAAAAgAPb/AAAHABEAAAAgAPf/AAAHABIAAAAhAPb/AAAIABEAAAAhAPf/AAAIABIAAAAkAPb/AAAAABAAAAAkAPf/AAAAABEAAAAkAPj/AAAAABIAAAAlAPb/AAABABAAAAAlAPf/AAABABEAAAAlAPj/AAABABIAAAAmAPb/AAACABAAAAAmAPf/AAACABEAAAAmAPj/AAACABIAAAArAPX/AAALABEAAAAaAPj/AAAHABEAAAAaAPn/AAAHABIAAAAbAPj/AAAIABEAAAAbAPn/AAAIABIAAAAWAPX/AAALABEAAAAVAPn/AAALABEAAAAdAPr/AAALABEAAAAvAPf/AAALABEAAAArAPr/AAALABEAAAAzAPT/AAAKABAAAAAzAPX/AAAKABEAAAAzAPb/AAAKABIAAAA0APT/AAALABAAAAA0APX/AAALABEAAAA0APb/AAALABIAAAA1APT/AAAMABAAAAA1APX/AAAMABEAAAA1APb/AAAMABIAAAA3APL/AAALABEAAAAwAPD/AAAHABEAAAAwAPH/AAAHABIAAAAxAPD/AAAIABEAAAAxAPH/AAAIABIAAAA6AO//AAAHABEAAAA6APD/AAAHABIAAAA7AO//AAAIABEAAAA7APD/AAAIABIAAAAmAPn/AAAHABEAAAAmAPr/AAAHABIAAAAnAPn/AAAIABEAAAAnAPr/AAAIABIAAAA/AO3/AAANABQAAABAAO3/AAAOABQAAABBAO3/AAAPABQAAABEAOr/AAAAABUAAABFAOn/AAABABQAAABFAOr/AAABABUAAABFAOv/AAABABYAAABGAOr/AAACABUAAAA8AOf/AAAHABQAAAA8AOj/AAAHABUAAAA9AOf/AAAIABQAAAA9AOj/AAAIABUAAAA2AOX/AAAAABAAAAA2AOb/AAAAABEAAAA2AOf/AAAAABIAAAA3AOX/AAABABAAAAA3AOb/AAABABEAAAA3AOf/AAABABIAAAA4AOX/AAACABAAAAA4AOb/AAACABEAAAA4AOf/AAACABIAAAAwAOP/AAAKABAAAAAwAOT/AAAKABEAAAAwAOX/AAAKABIAAAAxAOP/AAALABAAAAAxAOT/AAALABEAAAAxAOX/AAALABIAAAAyAOP/AAAMABAAAAAyAOT/AAAMABEAAAAyAOX/AAAMABIAAAA4AOH/AAAHABEAAAA4AOL/AAAHABIAAAA5AOH/AAAIABEAAAA5AOL/AAAIABIAAAA9AOD/AAALABEAAABBAN//AAAKABAAAAA0ANn/AAAAABAAAAA0ANr/AAAAABEAAAA0ANv/AAAAABIAAAA1ANn/AAABABAAAAA1ANr/AAABABEAAAA1ANv/AAABABIAAAA2ANn/AAACABAAAAA2ANr/AAACABEAAAA2ANv/AAACABIAAABBAOD/AAAKABEAAABBAOH/AAAKABIAAABCAN//AAALABAAAABCAOD/AAALABEAAABCAOH/AAALABIAAABDAN//AAAMABAAAABDAOD/AAAMABEAAABDAOH/AAAMABIAAAAsANT/AAAKABUAAAAtANT/AAACABIAAAAnAOP/AAANABQAAAAoAOP/AAAOABQAAAApAOP/AAAPABQAAAAjAOX/AAANABQAAAAkAOX/AAAOABQAAAAlAOX/AAAPABQAAAAeAOf/AAANABQAAAAfAOf/AAAOABQAAAAgAOf/AAAPABQAAAAWAOf/AAANABQAAAAXAOf/AAAOABQAAAAYAOf/AAAPABQAAAA9ANv/AAAAABUAAAA+ANr/AAABABQAAAA+ANv/AAABABUAAAA+ANz/AAABABYAAAA/ANv/AAACABUAAABGAN7/AAAOABAAAABGAN//AAAOABEAAABGAOD/AAAOABIAAAAqANj/AAAOABYAAAApANj/AAANABYAAAAoANj/AAARABYAAAAnANj/AAAQABYAAAAjANv/AAARABYAAAAkANv/AAARABYAAAAlANv/AAASABYAAAAiANv/AAAQABYAAAAjAPj/AAALABEAAAAiAPf/AAALABEAAADr/9j/AAAMABYAAADs/9j/AAANABYAAADt/9j/AAARABYAAADu/9j/AAASABYAAADx/9v/AAAQABYAAADy/9v/AAARABYAAADz/9v/AAASABYAAAA=")
+
+[node name="Player" parent="." index="3"]
+position = Vector2(536, -944)
+
+[node name="Coin18" parent="Collectables" index="0" instance=ExtResource("3_jia2o")]
+position = Vector2(816, -944)
+
+[node name="Coin33" parent="Collectables" index="1" instance=ExtResource("3_jia2o")]
+position = Vector2(784, -897)
+
+[node name="Coin19" parent="Collectables" index="2" instance=ExtResource("3_jia2o")]
+position = Vector2(864, -984)
+
+[node name="Coin20" parent="Collectables" index="3" instance=ExtResource("3_jia2o")]
+position = Vector2(912, -1016)
+
+[node name="Coin21" parent="Collectables" index="4" instance=ExtResource("3_jia2o")]
+position = Vector2(960, -1040)
+
+[node name="Coin22" parent="Collectables" index="5" instance=ExtResource("3_jia2o")]
+position = Vector2(1016, -1048)
+
+[node name="Coin23" parent="Collectables" index="6" instance=ExtResource("3_jia2o")]
+position = Vector2(1072, -1048)
+
+[node name="Coin24" parent="Collectables" index="7" instance=ExtResource("3_jia2o")]
+position = Vector2(1136, -1048)
+
+[node name="Coin25" parent="Collectables" index="8" instance=ExtResource("3_jia2o")]
+position = Vector2(1200, -1048)
+
+[node name="Coin26" parent="Collectables" index="9" instance=ExtResource("3_jia2o")]
+position = Vector2(1264, -1048)
+
+[node name="Coin27" parent="Collectables" index="10" instance=ExtResource("3_jia2o")]
+position = Vector2(1328, -1048)
+
+[node name="Coin28" parent="Collectables" index="11" instance=ExtResource("3_jia2o")]
+position = Vector2(1392, -1048)
+
+[node name="Coin29" parent="Collectables" index="12" instance=ExtResource("3_jia2o")]
+position = Vector2(1456, -1048)
+
+[node name="Coin30" parent="Collectables" index="13" instance=ExtResource("3_jia2o")]
+position = Vector2(1080, -560)
+
+[node name="Coin31" parent="Collectables" index="14" instance=ExtResource("3_jia2o")]
+position = Vector2(1032, -368)
+
+[node name="Coin32" parent="Collectables" index="15" instance=ExtResource("3_jia2o")]
+position = Vector2(1416, -320)
+
+[node name="Coin34" parent="Collectables" index="16" instance=ExtResource("3_jia2o")]
+position = Vector2(1704, -424)
+
+[node name="Coin35" parent="Collectables" index="17" instance=ExtResource("3_jia2o")]
+position = Vector2(2328, -800)
+
+[node name="Coin36" parent="Collectables" index="18" instance=ExtResource("3_jia2o")]
+position = Vector2(2376, -800)
+
+[node name="Coin37" parent="Collectables" index="19" instance=ExtResource("3_jia2o")]
+position = Vector2(2352, -848)
+
+[node name="Coin38" parent="Collectables" index="20" instance=ExtResource("3_jia2o")]
+position = Vector2(3384, -1088)
+
+[node name="Coin39" parent="Collectables" index="21" instance=ExtResource("3_jia2o")]
+position = Vector2(2328, -1416)
+
+[node name="Coin40" parent="Collectables" index="22" instance=ExtResource("3_jia2o")]
+position = Vector2(2376, -1416)
+
+[node name="Coin41" parent="Collectables" index="23" instance=ExtResource("3_jia2o")]
+position = Vector2(2424, -1416)
+
+[node name="Coin44" parent="Collectables" index="24" instance=ExtResource("3_jia2o")]
+position = Vector2(656, -2048)
+
+[node name="Coin45" parent="Collectables" index="25" instance=ExtResource("3_jia2o")]
+position = Vector2(656, -2112)
+
+[node name="Coin46" parent="Collectables" index="26" instance=ExtResource("3_jia2o")]
+position = Vector2(656, -2176)
+
+[node name="Coin47" parent="Collectables" index="27" instance=ExtResource("3_jia2o")]
+position = Vector2(400, -2048)
+
+[node name="Coin48" parent="Collectables" index="28" instance=ExtResource("3_jia2o")]
+position = Vector2(400, -2112)
+
+[node name="Coin49" parent="Collectables" index="29" instance=ExtResource("3_jia2o")]
+position = Vector2(400, -2176)
+
+[node name="Coin50" parent="Collectables" index="30" instance=ExtResource("3_jia2o")]
+position = Vector2(216, -1664)
+
+[node name="Coin51" parent="Collectables" index="31" instance=ExtResource("3_jia2o")]
+position = Vector2(264, -1664)
+
+[node name="Coin52" parent="Collectables" index="32" instance=ExtResource("3_jia2o")]
+position = Vector2(312, -1664)
+
+[node name="Coin53" parent="Collectables" index="33" instance=ExtResource("3_jia2o")]
+position = Vector2(360, -1664)
+
+[node name="Coin54" parent="Collectables" index="34" instance=ExtResource("3_jia2o")]
+position = Vector2(408, -1664)
+
+[node name="Coin65" parent="Collectables" index="35" instance=ExtResource("3_jia2o")]
+position = Vector2(-640, -1088)
+
+[node name="Coin66" parent="Collectables" index="36" instance=ExtResource("3_jia2o")]
+position = Vector2(-504, -1136)
+
+[node name="Coin67" parent="Collectables" index="37" instance=ExtResource("3_jia2o")]
+position = Vector2(-488, -1008)
+
+[node name="Coin68" parent="Collectables" index="38" instance=ExtResource("3_jia2o")]
+position = Vector2(-1064, -960)
+
+[node name="Coin69" parent="Collectables" index="39" instance=ExtResource("3_jia2o")]
+position = Vector2(-1504, -1232)
+
+[node name="Coin70" parent="Collectables" index="40" instance=ExtResource("3_jia2o")]
+position = Vector2(200, -816)
+
+[node name="Coin71" parent="Collectables" index="41" instance=ExtResource("3_jia2o")]
+position = Vector2(-1032, -1376)
+
+[node name="Coin72" parent="Collectables" index="42" instance=ExtResource("3_jia2o")]
+position = Vector2(-936, -1424)
+
+[node name="Coin73" parent="Collectables" index="43" instance=ExtResource("3_jia2o")]
+position = Vector2(-792, -1568)
+
+[node name="Coin55" parent="Collectables" index="44" instance=ExtResource("3_jia2o")]
+position = Vector2(240, -1704)
+
+[node name="Coin56" parent="Collectables" index="45" instance=ExtResource("3_jia2o")]
+position = Vector2(288, -1704)
+
+[node name="Coin57" parent="Collectables" index="46" instance=ExtResource("3_jia2o")]
+position = Vector2(336, -1704)
+
+[node name="Coin58" parent="Collectables" index="47" instance=ExtResource("3_jia2o")]
+position = Vector2(384, -1704)
+
+[node name="Coin59" parent="Collectables" index="48" instance=ExtResource("3_jia2o")]
+position = Vector2(264, -1744)
+
+[node name="Coin60" parent="Collectables" index="49" instance=ExtResource("3_jia2o")]
+position = Vector2(312, -1744)
+
+[node name="Coin61" parent="Collectables" index="50" instance=ExtResource("3_jia2o")]
+position = Vector2(360, -1744)
+
+[node name="Coin62" parent="Collectables" index="51" instance=ExtResource("3_jia2o")]
+position = Vector2(288, -1784)
+
+[node name="Coin63" parent="Collectables" index="52" instance=ExtResource("3_jia2o")]
+position = Vector2(336, -1784)
+
+[node name="Coin64" parent="Collectables" index="53" instance=ExtResource("3_jia2o")]
+position = Vector2(312, -1824)
+
+[node name="Coin42" parent="Collectables" index="54" instance=ExtResource("3_jia2o")]
+position = Vector2(3384, -1664)
+
+[node name="Coin43" parent="Collectables" index="55" instance=ExtResource("3_jia2o")]
+position = Vector2(2952, -1808)
+
+[node name="InteractableDoor" parent="Puzzles/Doors" index="0" instance=ExtResource("3_lrymu")]
+position = Vector2(528, -1112)
+rotation = 1.5708
+cable = NodePath("../../../Cable31")
+
+[node name="InteractableDoor3" parent="Puzzles/Doors" index="1" instance=ExtResource("3_lrymu")]
+position = Vector2(528, -1400)
+rotation = 1.5708
+cable = NodePath("../../../Cable11")
+
+[node name="Door" parent="." index="12"]
+position = Vector2(768, -1632)
+
+[node name="Switch" parent="." index="13" instance=ExtResource("5_u7gi2")]
+position = Vector2(-359.999, -1874)
+cable = NodePath("../Cable15")
+output = true
+
+[node name="Switch2" parent="." index="14" instance=ExtResource("5_u7gi2")]
+position = Vector2(-215.999, -1970)
+cable = NodePath("../Cable5")
+
+[node name="Switch3" parent="." index="15" instance=ExtResource("5_u7gi2")]
+position = Vector2(-71.9986, -2066)
+cable = NodePath("../Cable3")
+
+[node name="Switch4" parent="." index="16" instance=ExtResource("5_u7gi2")]
+position = Vector2(72.0014, -2162)
+cable = NodePath("../Cable2")
+
+[node name="Switch5" parent="." index="17" instance=ExtResource("5_u7gi2")]
+position = Vector2(984.001, -2160)
+cable = NodePath("../Cable8")
+
+[node name="Switch6" parent="." index="18" instance=ExtResource("5_u7gi2")]
+position = Vector2(1128, -2064)
+cable = NodePath("../Cable7")
+
+[node name="Switch7" parent="." index="19" instance=ExtResource("5_u7gi2")]
+position = Vector2(1272, -1968)
+cable = NodePath("../Cable6")
+
+[node name="Switch8" parent="." index="20" instance=ExtResource("5_u7gi2")]
+position = Vector2(1416, -1872)
+cable = NodePath("../Cable")
+
+[node name="AndGate" parent="." index="21" instance=ExtResource("6_kmapy")]
+position = Vector2(1404, -2112)
+cable_a = NodePath("../Cable8")
+cable_b = NodePath("../Cable7")
+cable_c = NodePath("../Cable9")
+
+[node name="OrGate" parent="." index="22" instance=ExtResource("7_i3avl")]
+position = Vector2(1500, -1984)
+cable_a = NodePath("../Cable7")
+cable_b = NodePath("../Cable6")
+cable_c = NodePath("../Cable10")
+
+[node name="NotGate" parent="." index="23" instance=ExtResource("8_t3oxq")]
+position = Vector2(1600, -2112)
+cable_a = NodePath("../Cable9")
+cable_c = NodePath("../Cable12")
+
+[node name="XorGate" parent="." index="24" instance=ExtResource("9_vuman")]
+position = Vector2(1600, -1856)
+cable_a = NodePath("../Cable6")
+cable_b = NodePath("../Cable")
+cable_c = NodePath("../Cable14")
+
+[node name="NandGate" parent="." index="25" instance=ExtResource("10_gfiyh")]
+position = Vector2(1701, -1920)
+cable_a = NodePath("../Cable10")
+cable_b = NodePath("../Cable14")
+cable_c = NodePath("../Cable13")
+
+[node name="NorGate" parent="." index="26" instance=ExtResource("11_lww7w")]
+position = Vector2(1808, -2016)
+cable_a = NodePath("../Cable12")
+cable_b = NodePath("../Cable13")
+cable_c = NodePath("../Cable11")
+
+[node name="Cable" parent="." index="27" instance=ExtResource("4_tprmj")]
+position = Vector2(1532.79, -1781.83)
+points = PackedVector2Array(-116.786, -10.1683, -116.786, -66.1683, -76.7858, -66.1683, -76.7858, -66.1683, 59.2142, -66.1683)
+
+[node name="Cable6" parent="." index="28" instance=ExtResource("4_tprmj")]
+position = Vector2(1391.58, -1945.62)
+points = PackedVector2Array(-119.584, 49.6233, -119.584, -30.3767, -79.5844, -30.3767, -79.5844, -30.3767, 104.416, -30.3767, -79.5844, -30.3767, 72.4156, -30.3767, 72.4156, 81.6233, 80.4156, 81.6233, 80.4156, 81.6233, 200.416, 81.6233)
+
+[node name="Cable7" parent="." index="29" instance=ExtResource("4_tprmj")]
+position = Vector2(1214.9, -2081.11)
+points = PackedVector2Array(-86.9031, 89.1121, -86.9031, -22.8879, 145.097, -22.8879, 169.097, -22.8879, 145.097, -22.8879, 145.097, 89.1121, 281.097, 89.1121)
+
+[node name="Cable8" parent="." index="30" instance=ExtResource("4_tprmj")]
+position = Vector2(1113, -2136.05)
+points = PackedVector2Array(-129.003, 48.0481, -129.003, -23.9519, -89.0034, -23.9519, -89.0034, 16.0481, 270.997, 16.0481)
+
+[node name="Cable9" parent="." index="31" instance=ExtResource("4_tprmj")]
+position = Vector2(1416, -2112)
+points = PackedVector2Array(0, 0, 168, 0)
+
+[node name="Cable10" parent="." index="32" instance=ExtResource("4_tprmj")]
+position = Vector2(1512.13, -1984)
+scale = Vector2(1.03125, 1)
+points = PackedVector2Array(0, 0, 124, 0, 124, 56, 162.788, 56)
+
+[node name="Cable14" parent="." index="33" instance=ExtResource("4_tprmj")]
+position = Vector2(1608, -1856)
+scale = Vector2(1.03125, 1)
+points = PackedVector2Array(0, 0, 31.0302, 0, 31.0302, -56, 69.818, -56)
+
+[node name="Cable13" parent="." index="34" instance=ExtResource("4_tprmj")]
+position = Vector2(1704, -1920)
+points = PackedVector2Array(0, 0, 56, 0, 56, -88, 96, -88)
+
+[node name="Cable11" parent="." index="35" instance=ExtResource("4_tprmj")]
+position = Vector2(1824, -2016)
+points = PackedVector2Array(0, 0, 32, 0, 32, 416, -1168, 416, -1168, 616, -1216, 616)
+
+[node name="Cable12" parent="." index="36" instance=ExtResource("4_tprmj")]
+position = Vector2(1600, -2112)
+points = PackedVector2Array(0, 0, 160, 0, 160, 88, 200, 88)
+
+[node name="Cable2" parent="." index="37" instance=ExtResource("4_tprmj")]
+position = Vector2(-65.9276, -2156.69)
+points = PackedVector2Array(-110.072, 28.6946, -78.0724, 28.6946, -78.0724, -3.30542, 137.928, -3.30542, 137.928, 276.695, 9.92755, 404.695, -46.0724, 460.695, -334.072, 460.695, -334.072, 324.695, -414.072, 324.695)
+
+[node name="Cable3" parent="." index="38" instance=ExtResource("4_tprmj")]
+position = Vector2(-214.084, -2092.85)
+points = PackedVector2Array(142.084, 100.847, 142.084, 4.84717, 70.0839, 4.84717, 70.0839, -19.1528, 38.0839, -19.1528, 70.0839, -19.1528, 70.0839, 4.84717, 14.0839, 4.84717, 14.0839, 68.8472, -97.9161, 68.8472)
+
+[node name="XorGate2" parent="." index="39" instance=ExtResource("9_vuman")]
+position = Vector2(-184, -2120)
+cable_a = NodePath("../Cable2")
+cable_b = NodePath("../Cable3")
+cable_c = NodePath("../Cable4")
+flip = true
+
+[node name="Cable4" parent="." index="40" instance=ExtResource("4_tprmj")]
+position = Vector2(-283, -2111)
+points = PackedVector2Array(91, -9, -205, -9)
+
+[node name="NotGate2" parent="." index="41" instance=ExtResource("8_t3oxq")]
+position = Vector2(-496, -2120)
+cable_a = NodePath("../Cable4")
+cable_c = NodePath("../Cable19")
+flip = true
+
+[node name="OrGate2" parent="." index="42" instance=ExtResource("7_i3avl")]
+position = Vector2(-320, -2016)
+cable_a = NodePath("../Cable3")
+cable_b = NodePath("../Cable5")
+cable_c = NodePath("../Cable18")
+flip = true
+
+[node name="Cable5" parent="." index="43" instance=ExtResource("4_tprmj")]
+position = Vector2(-246.133, -1937.26)
+points = PackedVector2Array(30.1333, 41.2637, 30.1333, -70.7363, -73.8667, -70.7363, -41.8667, -70.7363, -41.8667, -6.73633, -337.867, -6.73633)
+
+[node name="XnorGate" parent="." index="44" instance=ExtResource("13_a2dmr")]
+position = Vector2(-592, -1936)
+cable_a = NodePath("../Cable16")
+cable_b = NodePath("../Cable5")
+cable_c = NodePath("../Cable17")
+flip = true
+
+[node name="Cable15" parent="." index="45" instance=ExtResource("4_tprmj")]
+position = Vector2(-499, -1797)
+points = PackedVector2Array(139, 37, 139, -83, 99, -83, 99, -51, 19, -51)
+
+[node name="AndGate2" parent="." index="46" instance=ExtResource("6_kmapy")]
+position = Vector2(-488, -1840)
+cable_a = NodePath("../Cable15")
+cable_b = NodePath("../Cable2")
+cable_c = NodePath("../Cable16")
+flip = true
+
+[node name="Cable16" parent="." index="47" instance=ExtResource("4_tprmj")]
+position = Vector2(-581, -1846)
+points = PackedVector2Array(77, 6, 45, 6, 45, -82, -3, -82)
+
+[node name="AndGate3" parent="." index="48" instance=ExtResource("6_kmapy")]
+position = Vector2(-712, -1976)
+cable_a = NodePath("../Cable18")
+cable_b = NodePath("../Cable17")
+cable_c = NodePath("../Cable20")
+flip = true
+
+[node name="Cable17" parent="." index="49" instance=ExtResource("4_tprmj")]
+position = Vector2(-558.272, -1969.16)
+points = PackedVector2Array(-41.7278, 33.1608, -105.728, 33.1608, -105.728, 1.16077, -153.728, 1.16077)
+
+[node name="Cable18" parent="." index="50" instance=ExtResource("4_tprmj")]
+position = Vector2(-394.482, -2007.59)
+points = PackedVector2Array(58.4824, -8.41162, -269.518, -8.41162, -269.518, 23.5884, -317.518, 23.5884)
+
+[node name="XorGate3" parent="." index="51" instance=ExtResource("9_vuman")]
+position = Vector2(-816, -2064)
+cable_a = NodePath("../Cable19")
+cable_b = NodePath("../Cable20")
+cable_c = NodePath("../Cable30")
+flip = true
+
+[node name="Cable19" parent="." index="52" instance=ExtResource("4_tprmj")]
+position = Vector2(-619.396, -2099.81)
+points = PackedVector2Array(115.396, -20.1904, -140.604, -20.1904, -140.604, 27.8096, -180.604, 27.8096)
+
+[node name="Cable20" parent="." index="53" instance=ExtResource("4_tprmj")]
+position = Vector2(-768, -1956.5)
+points = PackedVector2Array(40, -19.5, 8, -19.5, 8, -99.5, -40, -99.5, 8, -99.5, 8, -19.5, -112, -19.5, -112, -51.5, -152, -51.5)
+
+[node name="Cable21" parent="." index="54" instance=ExtResource("4_tprmj")]
+position = Vector2(8285.06, 655.369)
+points = PackedVector2Array(-293.061, 8.63147, -293.061, 48.6315, 138.939, 48.6315, 138.939, -31.3685, 226.939, -31.3685)
+
+[node name="Cable22" parent="." index="55" instance=ExtResource("4_tprmj")]
+position = Vector2(8440.98, 371.304)
+points = PackedVector2Array(-16.9756, 4.69647, -16.9756, 100.696, 79.0244, 100.696)
+
+[node name="Cable23" parent="." index="56" instance=ExtResource("4_tprmj")]
+position = Vector2(8244.11, 390.995)
+points = PackedVector2Array(35.8892, 81.0047, 35.8892, 121.005, 179.889, 121.005, 179.889, 97.0047, 275.889, 97.0047)
+
+[node name="Cable24" parent="." index="57" instance=ExtResource("4_tprmj")]
+position = Vector2(8136, 568)
+points = PackedVector2Array(0, 0, 0, 40, 192, 40, 216, 40)
+
+[node name="Cable25" parent="." index="58" instance=ExtResource("4_tprmj")]
+position = Vector2(8431.25, 538.008)
+points = PackedVector2Array(-87.249, 69.9918, 80.751, 69.9918)
+
+[node name="Cable26" parent="." index="59" instance=ExtResource("4_tprmj")]
+position = Vector2(8619.25, 543.626)
+points = PackedVector2Array(-75.249, -63.6265, -3.24902, -63.6265, 124.75, -63.6265, 124.75, -63.6265, 236.75, -63.6265, 236.75, -39.6265, 316.75, -39.6265, 236.75, -39.6265, 236.75, -63.6265, 124.75, -63.6265, 124.75, -63.6265, -3.25, -63.6265, -3.24902, -7.62646, 108.751, -7.62646)
+
+[node name="Cable27" parent="." index="60" instance=ExtResource("4_tprmj")]
+position = Vector2(8619.25, 679.626)
+points = PackedVector2Array(-75.249, -63.6265, -3.24902, -63.6265, -3.24902, -127.626, 108.751, -127.626)
+
+[node name="Cable28" parent="." index="61" instance=ExtResource("4_tprmj")]
+position = Vector2(8933.9, 508.049)
+points = PackedVector2Array(-173.902, 35.9509, -77.9023, 35.9509, -77.9023, 11.9509, 2.09766, 11.9509)
+
+[node name="Cable29" parent="." index="62" instance=ExtResource("4_tprmj")]
+position = Vector2(9002.02, 485.429)
+points = PackedVector2Array(-42.0156, 26.5708, 45.9844, 26.5708, 45.9844, 210.571, 237.984, 210.571, 237.984, 170.571)
+
+[node name="XorGate4" parent="." index="63" instance=ExtResource("9_vuman")]
+position = Vector2(8528, 480)
+cable_a = NodePath("../../Cables/Cable3")
+cable_b = NodePath("../../Cables/Cable4")
+cable_c = NodePath("../../Cables/Cable7")
+
+[node name="NotGate3" parent="." index="64" instance=ExtResource("8_t3oxq")]
+position = Vector2(8336, 608)
+cable_a = NodePath("../../Cables/Cable5")
+cable_c = NodePath("../../Cables/Cable6")
+
+[node name="AndGate4" parent="." index="65" instance=ExtResource("6_kmapy")]
+position = Vector2(8528, 616)
+cable_a = NodePath("../../Cables/Cable6")
+cable_b = NodePath("../../Cables/Cable2")
+cable_c = NodePath("../../Cables/Cable8")
+
+[node name="XnorGate2" parent="." index="66" instance=ExtResource("13_a2dmr")]
+position = Vector2(8744, 544)
+cable_a = NodePath("../../Cables/Cable7")
+cable_b = NodePath("../../Cables/Cable8")
+cable_c = NodePath("../../Cables/Cable9")
+
+[node name="AndGate5" parent="." index="67" instance=ExtResource("6_kmapy")]
+position = Vector2(8952, 512)
+cable_a = NodePath("../../Cables/Cable7")
+cable_b = NodePath("../../Cables/Cable9")
+cable_c = NodePath("../../Cables/Cable10")
+
+[node name="Switch9" parent="." index="68" instance=ExtResource("5_u7gi2")]
+position = Vector2(7992, 528)
+cable = NodePath("../../Cables/Cable2")
+output = true
+
+[node name="Switch10" parent="." index="69" instance=ExtResource("5_u7gi2")]
+position = Vector2(8136, 432)
+cable = NodePath("../../Cables/Cable5")
+
+[node name="Switch11" parent="." index="70" instance=ExtResource("5_u7gi2")]
+position = Vector2(8280, 336)
+cable = NodePath("../../Cables/Cable4")
+
+[node name="Switch12" parent="." index="71" instance=ExtResource("5_u7gi2")]
+position = Vector2(8424, 240)
+is_useless = true
+cable = NodePath("../../Cables/Cable3")
+
+[node name="Cable30" parent="." index="72" instance=ExtResource("4_tprmj")]
+position = Vector2(-875.057, -2042.23)
+points = PackedVector2Array(51.0569, -21.7662, -4.94312, -21.7662, -4.94312, 18.2338, -44.9431, 18.2338)
+
+[node name="AndGate6" parent="." index="73" instance=ExtResource("6_kmapy")]
+position = Vector2(-920, -2016)
+cable_a = NodePath("../Cable30")
+cable_b = NodePath("../Cable20")
+cable_c = NodePath("../Cable31")
+flip = true
+
+[node name="Cable31" parent="." index="74" instance=ExtResource("4_tprmj")]
+position = Vector2(-845.671, -1955.05)
+points = PackedVector2Array(-82.3292, -60.9531, -114.329, -60.9531, -114.329, 99.0469, 141.671, 355.047, 325.671, 355.047, 1245.67, 355.047, 1245.67, 843.047, 1285.67, 843.047)

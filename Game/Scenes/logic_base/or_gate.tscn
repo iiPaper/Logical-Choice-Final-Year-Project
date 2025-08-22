@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://dkbq4kjcto74f"]
+
+[ext_resource type="PackedScene" uid="uid://bwjx8hvxvnwij" path="res://Scenes/logic_base/logic_base.tscn" id="1_vk1j6"]
+[ext_resource type="Script" path="res://Scripts/logic_base/or_gate.gd" id="2_fdq6y"]
+[ext_resource type="Texture2D" uid="uid://dada1p5algqn" path="res://Sprites/Other/Gates/OR/or_off.png" id="3_wpvkp"]
+[ext_resource type="Texture2D" uid="uid://24lcmla2cs7o" path="res://Sprites/Other/Gates/OR/or_on.png" id="4_y3wld"]
+
+[sub_resource type="Animation" id="Animation_aetft"]
+resource_name = "Off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_wpvkp")]
+}
+
+[sub_resource type="Animation" id="Animation_1tlh0"]
+resource_name = "On"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_y3wld")]
+}
+
+[sub_resource type="Animation" id="Animation_bnkbo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_wpvkp")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rjxv5"]
+_data = {
+"Off": SubResource("Animation_aetft"),
+"On": SubResource("Animation_1tlh0"),
+"RESET": SubResource("Animation_bnkbo")
+}
+
+[node name="OrGate" instance=ExtResource("1_vk1j6")]
+script = ExtResource("2_fdq6y")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_wpvkp")
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_rjxv5")
+}
+
+[node name="Label" parent="." index="2"]
+text = "OR"

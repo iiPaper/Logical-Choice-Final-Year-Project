@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dle6lecsq174i"]
+
+[ext_resource type="PackedScene" uid="uid://bwjx8hvxvnwij" path="res://Scenes/logic_base/logic_base.tscn" id="1_ii36g"]
+[ext_resource type="Script" path="res://Scripts/logic_base/not_gate.gd" id="2_uhbmk"]
+[ext_resource type="Texture2D" uid="uid://c00pcy4012li" path="res://Sprites/Other/Gates/NOT/not.png" id="3_hqrvq"]
+
+[node name="NotGate" instance=ExtResource("1_ii36g")]
+script = ExtResource("2_uhbmk")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_hqrvq")
+
+[node name="Label" parent="." index="2"]
+text = "NOT"

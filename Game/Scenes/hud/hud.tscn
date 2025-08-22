@@ -1,0 +1,281 @@
+[gd_scene load_steps=12 format=3 uid="uid://c0wqi46acdjbc"]
+
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_8qo87"]
+[ext_resource type="LabelSettings" uid="uid://bkvtvmqoyxq4b" path="res://Text/label_settings.tres" id="1_fel0d"]
+[ext_resource type="Texture2D" uid="uid://qagjhwpbf444" path="res://Sprites/Other/Heart/heart.png" id="2_m1ov2"]
+[ext_resource type="LabelSettings" uid="uid://ckv1an5xuqaw0" path="res://Text/label_scores.tres" id="3_t3nig"]
+
+[sub_resource type="SystemFont" id="SystemFont_iberx"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_iehrw"]
+font = SubResource("SystemFont_iberx")
+font_size = 56
+font_color = Color(0.447093, 0.138402, 0.133227, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0.258824, 0.258824, 0.258824, 0.584314)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fitoj"]
+font = SubResource("SystemFont_iberx")
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0.258824, 0.258824, 0.258824, 0.584314)
+
+[sub_resource type="Animation" id="Animation_idpup"]
+resource_name = "Appear"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blinds:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blinds:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.27451, 0.27451, 0.27451, 1), Color(0.27451, 0.27451, 0.27451, 0.533333)]
+}
+
+[sub_resource type="Animation" id="Animation_gxsxu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blinds:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blinds:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.27451, 0.27451, 0.27451, 0.533333)]
+}
+
+[sub_resource type="Animation" id="Animation_5wson"]
+resource_name = "Vanish"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blinds:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.533333), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blinds:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.27451, 0.27451, 0.27451, 0.533333), Color(0.27451, 0.27451, 0.27451, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6qyjb"]
+_data = {
+"Appear": SubResource("Animation_idpup"),
+"RESET": SubResource("Animation_gxsxu"),
+"Vanish": SubResource("Animation_5wson")
+}
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8qo87")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 72
+theme_override_constants/margin_right = 90
+theme_override_constants/margin_bottom = 72
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="HPContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/HPContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_m1ov2")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer/HPContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_m1ov2")
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/HBoxContainer/HPContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_m1ov2")
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/HBoxContainer/HPContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_m1ov2")
+stretch_mode = 4
+
+[node name="TextureRect5" type="TextureRect" parent="MarginContainer/HBoxContainer/HPContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_m1ov2")
+stretch_mode = 4
+
+[node name="ScoreCounter" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("3_t3nig")
+
+[node name="Blinds" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.27451, 0.27451, 0.27451, 0.533333)
+
+[node name="CompletionContainer" type="VBoxContainer" parent="Blinds"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.0
+offset_top = -52.0
+offset_right = 254.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00743, 1)
+
+[node name="CompletionMessage" type="Label" parent="Blinds/CompletionContainer"]
+layout_mode = 2
+text = "Section Completed
+"
+label_settings = SubResource("LabelSettings_iehrw")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Blinds/CompletionContainer"]
+visible = false
+layout_mode = 2
+text = "Final Score: "
+label_settings = ExtResource("1_fel0d")
+horizontal_alignment = 1
+
+[node name="Instruction" type="Label" parent="Blinds/CompletionContainer"]
+layout_mode = 2
+text = "Press 'Space' To Continue..."
+label_settings = SubResource("LabelSettings_fitoj")
+horizontal_alignment = 1
+
+[node name="DeathContainer" type="VBoxContainer" parent="Blinds"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.0
+offset_top = -52.0
+offset_right = 254.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00743, 1)
+
+[node name="DeathMessage" type="Label" parent="Blinds/DeathContainer"]
+layout_mode = 2
+text = "You Died"
+label_settings = SubResource("LabelSettings_iehrw")
+horizontal_alignment = 1
+
+[node name="Instruction" type="Label" parent="Blinds/DeathContainer"]
+layout_mode = 2
+text = "Press 'Space' To Continue..."
+label_settings = SubResource("LabelSettings_fitoj")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6qyjb")
+}
+
+[node name="FadeTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="AppearTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="FadeTimer" to="." method="_on_fade_timer_timeout"]
+[connection signal="timeout" from="AppearTimer" to="." method="_on_appear_timer_timeout"]

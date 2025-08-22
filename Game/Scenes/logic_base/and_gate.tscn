@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://cm1h0pfld7jja"]
+
+[ext_resource type="PackedScene" uid="uid://bwjx8hvxvnwij" path="res://Scenes/logic_base/logic_base.tscn" id="1_dyhbq"]
+[ext_resource type="Script" path="res://Scripts/logic_base/and.gd" id="2_rhowu"]
+[ext_resource type="Texture2D" uid="uid://dl86r7bcmlpx6" path="res://Sprites/Other/Gates/AND/and_on.png" id="3_c6euv"]
+[ext_resource type="Texture2D" uid="uid://cfrfjl608wdkj" path="res://Sprites/Other/Gates/AND/and_off.png" id="4_ektkm"]
+
+[sub_resource type="Animation" id="Animation_lyynb"]
+resource_name = "Off"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_ektkm")]
+}
+
+[sub_resource type="Animation" id="Animation_07wmt"]
+resource_name = "On"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_c6euv")]
+}
+
+[sub_resource type="Animation" id="Animation_pa4u7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_ektkm")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_641n5"]
+_data = {
+"Off": SubResource("Animation_lyynb"),
+"On": SubResource("Animation_07wmt"),
+"RESET": SubResource("Animation_pa4u7")
+}
+
+[node name="AndGate" instance=ExtResource("1_dyhbq")]
+script = ExtResource("2_rhowu")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("4_ektkm")
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_641n5")
+}
+
+[node name="Label" parent="." index="2"]
+text = "AND"

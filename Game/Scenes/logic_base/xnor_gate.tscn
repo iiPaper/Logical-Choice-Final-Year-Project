@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://bt4q678b0tbj1"]
+
+[ext_resource type="PackedScene" uid="uid://bwjx8hvxvnwij" path="res://Scenes/logic_base/logic_base.tscn" id="1_dxu3x"]
+[ext_resource type="Script" path="res://Scripts/logic_base/xnor_gate.gd" id="2_3wkp5"]
+[ext_resource type="Texture2D" uid="uid://c0umlftoxd88b" path="res://Sprites/Other/Gates/XNOR/xnor_off.png" id="2_pga37"]
+[ext_resource type="Texture2D" uid="uid://bnxqvb4xk1bcr" path="res://Sprites/Other/Gates/XNOR/xnor_on.png" id="3_rjq6m"]
+
+[sub_resource type="Animation" id="Animation_gpc0b"]
+resource_name = "Off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_pga37")]
+}
+
+[sub_resource type="Animation" id="Animation_rfth6"]
+resource_name = "On"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_rjq6m")]
+}
+
+[sub_resource type="Animation" id="Animation_xrmf7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_pga37")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sg40f"]
+_data = {
+"Off": SubResource("Animation_gpc0b"),
+"On": SubResource("Animation_rfth6"),
+"RESET": SubResource("Animation_xrmf7")
+}
+
+[node name="XnorGate" instance=ExtResource("1_dxu3x")]
+script = ExtResource("2_3wkp5")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_pga37")
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_sg40f")
+}
+
+[node name="Label" parent="." index="2"]
+text = "XNOR"

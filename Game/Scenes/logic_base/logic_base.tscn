@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwjx8hvxvnwij"]
+
+[ext_resource type="Script" path="res://Scripts/logic_base/logic_base.gd" id="1_bp7ve"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vhws2"]
+font_size = 80
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="LogicBase" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_bp7ve")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -40.0
+offset_right = 270.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+label_settings = SubResource("LabelSettings_vhws2")
+horizontal_alignment = 1
+vertical_alignment = 1

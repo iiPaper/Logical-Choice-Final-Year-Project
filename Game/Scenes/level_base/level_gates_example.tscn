@@ -1,0 +1,123 @@
+[gd_scene load_steps=11 format=4 uid="uid://d4bd0ejrup0ad"]
+
+[ext_resource type="PackedScene" uid="uid://jlcm585ofi6j" path="res://Scenes/level_base/level_base.tscn" id="1_4itd3"]
+[ext_resource type="PackedScene" uid="uid://juylw55yuamf" path="res://Scenes/cable/cable.tscn" id="2_c2cja"]
+[ext_resource type="PackedScene" uid="uid://cm1h0pfld7jja" path="res://Scenes/logic_base/and_gate.tscn" id="3_bjd1q"]
+[ext_resource type="PackedScene" uid="uid://c60v1lhq7xu3" path="res://Scenes/switch/switch.tscn" id="4_dfiyw"]
+[ext_resource type="PackedScene" uid="uid://dkbq4kjcto74f" path="res://Scenes/logic_base/or_gate.tscn" id="5_6fmpn"]
+[ext_resource type="PackedScene" uid="uid://64c412pw051o" path="res://Scenes/logic_base/nor_gate.tscn" id="6_rd8jm"]
+[ext_resource type="PackedScene" uid="uid://cda6kxy4lm1by" path="res://Scenes/logic_base/xor_gate.tscn" id="7_0kq1k"]
+[ext_resource type="PackedScene" uid="uid://bt4q678b0tbj1" path="res://Scenes/logic_base/xnor_gate.tscn" id="8_q6i2p"]
+[ext_resource type="PackedScene" uid="uid://c7fpwwh183084" path="res://Scenes/logic_base/nand_gate.tscn" id="9_2gtqh"]
+[ext_resource type="PackedScene" uid="uid://dle6lecsq174i" path="res://Scenes/logic_base/not_gate.tscn" id="10_6fiw8"]
+
+[node name="Main" instance=ExtResource("1_4itd3")]
+
+[node name="TileMapLayer" parent="." index="1"]
+tile_map_data = PackedByteArray("AAAEAAkAAAABAAAAAAAFAAkAAAABAAAAAAAGAAkAAAABAAAAAAAHAAkAAAABAAAAAAADAAkAAAABAAAAAAACAAkAAAABAAAAAAAIAAkAAAACAAAAAAAIAAoAAAACAAEAAAAHAAoAAAABAAEAAAAGAAoAAAABAAEAAAAFAAoAAAABAAEAAAAEAAoAAAABAAEAAAADAAoAAAABAAEAAAACAAoAAAABAAEAAAABAAkAAAABAAAAAAAAAAkAAAABAAAAAAD//wkAAAAAAAAAAAD//woAAAAAAAEAAAD//wsAAAAAAAIAAAAAAAsAAAABAAIAAAABAAsAAAABAAIAAAACAAsAAAABAAIAAAADAAsAAAABAAIAAAAEAAsAAAABAAIAAAAFAAsAAAABAAIAAAAGAAsAAAABAAIAAAAHAAsAAAABAAIAAAAIAAsAAAACAAIAAAABAAoAAAABAAEAAAAAAAoAAAABAAEAAAA=")
+
+[node name="Cable" parent="Puzzles" index="0" instance=ExtResource("2_c2cja")]
+position = Vector2(184, -64)
+scale = Vector2(0.520853, 1)
+points = PackedVector2Array(153.594, 496, 153.594, 520, 599.018, 520, 599.018, 504, 798.69, 504, 599.018, 504, 599.018, 264, 599.018, 152, 814.05, 152, 599.018, 152, 599.018, 208, 798.69, 208, 599.018, 208, 599.018, 264, 798.69, 264, 599.018, 264, 599.018, 320, 798.69, 320, 599.018, 320, 599.018, 376, 783.331, 376, 599.018, 376, 599.018, 432, 767.972, 432)
+default_color = Color(1, 1, 0, 1)
+
+[node name="Cable3" parent="Puzzles" index="1" instance=ExtResource("2_c2cja")]
+position = Vector2(512, -80)
+scale = Vector2(0.520853, 1)
+points = PackedVector2Array(230.391, 456, 445.424, 456)
+default_color = Color(1, 1, 0, 1)
+
+[node name="Cable9" parent="Puzzles" index="2" instance=ExtResource("2_c2cja")]
+position = Vector2(512, -16)
+scale = Vector2(0.520853, 1)
+points = PackedVector2Array(230.391, 456, 445.424, 456)
+default_color = Color(1, 1, 0, 1)
+
+[node name="Cable4" parent="Puzzles" index="3" instance=ExtResource("2_c2cja")]
+position = Vector2(512, -136)
+scale = Vector2(0.520853, 1)
+points = PackedVector2Array(230.391, 456, 445.424, 456)
+default_color = Color(1, 1, 0, 1)
+
+[node name="Cable5" parent="Puzzles" index="4" instance=ExtResource("2_c2cja")]
+position = Vector2(512, -192)
+scale = Vector2(0.520853, 1)
+points = PackedVector2Array(230.391, 456, 445.424, 456)
+default_color = Color(1, 1, 0, 1)
+
+[node name="Cable6" parent="Puzzles" index="5" instance=ExtResource("2_c2cja")]
+position = Vector2(512, -248)
+scale = Vector2(0.520853, 1)
+points = PackedVector2Array(230.391, 456, 445.424, 456)
+default_color = Color(1, 1, 0, 1)
+
+[node name="Cable7" parent="Puzzles" index="6" instance=ExtResource("2_c2cja")]
+position = Vector2(512, -304)
+scale = Vector2(0.520853, 1)
+points = PackedVector2Array(230.391, 456, 445.424, 456)
+default_color = Color(1, 1, 0, 1)
+
+[node name="Cable8" parent="Puzzles" index="7" instance=ExtResource("2_c2cja")]
+position = Vector2(512, -360)
+scale = Vector2(0.520853, 1)
+points = PackedVector2Array(230.391, 456, 445.424, 456)
+default_color = Color(1, 1, 0, 1)
+
+[node name="Cable2" parent="Puzzles" index="8" instance=ExtResource("2_c2cja")]
+position = Vector2(192, -48)
+scale = Vector2(0.520853, 1)
+points = PackedVector2Array(-184.313, 480, -184.313, 520, 353.267, 520, 645.096, 520, 645.096, 152, 798.69, 152, 645.096, 152, 645.096, 208, 798.69, 208, 645.096, 208, 645.096, 264, 783.331, 264, 645.096, 264, 645.096, 320, 783.331, 320, 645.096, 320, 645.096, 376, 767.972, 376, 645.096, 376, 645.096, 432, 752.612, 432)
+default_color = Color(1, 1, 0, 1)
+
+[node name="AndGate" parent="Puzzles" index="9" instance=ExtResource("3_bjd1q")]
+position = Vector2(608, 376)
+cable_a = NodePath("../Cable")
+cable_b = NodePath("../Cable2")
+cable_c = NodePath("../Cable3")
+
+[node name="Switch2" parent="Puzzles" index="10" instance=ExtResource("4_dfiyw")]
+position = Vector2(264, 288)
+cable = NodePath("../Cable")
+
+[node name="Switch3" parent="Puzzles" index="11" instance=ExtResource("4_dfiyw")]
+position = Vector2(96, 288)
+cable = NodePath("../Cable2")
+
+[node name="OrGate" parent="Puzzles" index="12" instance=ExtResource("5_6fmpn")]
+position = Vector2(610, 264)
+cable_a = NodePath("../Cable")
+cable_b = NodePath("../Cable2")
+cable_c = NodePath("../Cable5")
+
+[node name="NorGate" parent="Puzzles" index="13" instance=ExtResource("6_rd8jm")]
+position = Vector2(616, 208)
+cable_a = NodePath("../Cable")
+cable_b = NodePath("../Cable2")
+cable_c = NodePath("../Cable6")
+
+[node name="XorGate" parent="Puzzles" index="14" instance=ExtResource("7_0kq1k")]
+position = Vector2(616, 152)
+cable_a = NodePath("../Cable")
+cable_b = NodePath("../Cable2")
+cable_c = NodePath("../Cable7")
+
+[node name="XnorGate" parent="Puzzles" index="15" instance=ExtResource("8_q6i2p")]
+position = Vector2(618, 96)
+cable_a = NodePath("../Cable")
+cable_b = NodePath("../Cable2")
+cable_c = NodePath("../Cable8")
+
+[node name="NandGate" parent="Puzzles" index="16" instance=ExtResource("9_2gtqh")]
+position = Vector2(616, 320)
+cable_a = NodePath("../Cable")
+cable_b = NodePath("../Cable2")
+cable_c = NodePath("../Cable4")
+
+[node name="NotGate" parent="Puzzles" index="17" instance=ExtResource("10_6fiw8")]
+position = Vector2(616, 440)
+cable_a = NodePath("../Cable")
+cable_c = NodePath("../Cable9")
+
+[node name="Door" parent="." index="11"]
+position = Vector2(992, 296)

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://vviadmsqt74r"]
+
+[ext_resource type="PackedScene" uid="uid://c5n0reibrqctk" path="res://Scenes/bullets/bullet_base.tscn" id="1_v21gx"]
+[ext_resource type="Texture2D" uid="uid://dlo65h3ghforp" path="res://Sprites/Bullets/player_bullet.png" id="2_74v4m"]
+
+[node name="bullet_base" instance=ExtResource("1_v21gx")]
+collision_layer = 8
+collision_mask = 5
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1.6875, 1.6875)
+texture = ExtResource("2_74v4m")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

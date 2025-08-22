@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://he2221gc700r"]
+
+[node name="PlayerCamera" type="Camera2D"]
+offset = Vector2(0, -55)
+zoom = Vector2(0.7, 0.7)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="ShakeTimer" type="Timer" parent="."]
